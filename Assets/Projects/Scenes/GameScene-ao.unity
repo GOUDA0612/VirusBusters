@@ -261,7 +261,6 @@ MonoBehaviour:
   maxY: 5
   minZ: 5
   maxZ: 10
-  currentTarget: {fileID: 0}
 --- !u!4 &289844376
 Transform:
   m_ObjectHideFlags: 0
@@ -430,8 +429,6 @@ MonoBehaviour:
   playerBody: {fileID: 1766226729}
   crosshairUI: {fileID: 1862339944}
   crosshairSize: {x: 15, y: 15}
-  xRotation: 0
-  isPaused: 0
 --- !u!1 &1757531581
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +717,6 @@ MonoBehaviour:
   timeFormat: 'Time: {0}'
   score: 0
   timeLimit: 30
-  currentTime: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
