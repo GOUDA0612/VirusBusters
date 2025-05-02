@@ -679,6 +679,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2953145838364920132, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3789472007920184208, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_Name
       value: PopUp
@@ -791,6 +795,22 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6763932437364180854, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763932437364180854, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763932437364180854, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6763932437364180854, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6810454016654713869, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_sharedMaterial
       value: 
@@ -814,6 +834,18 @@ PrefabInstance:
     - target: {fileID: 6967265412209446477, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549362638025407591, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117828406571271828, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8808032469337771405, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
