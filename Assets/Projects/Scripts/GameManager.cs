@@ -21,16 +21,17 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("GameScene_hara");
     }
 
     public void EndGame()
     {
-        SceneManager.LoadScene("ScoreScene");
+        SceneManager.LoadScene("ScoreScene_hara");
     }
 
     public void ReturnToStart()
     {
-        SceneManager.LoadScene("TitleScene");
+        SceneManager.LoadScene("TitleScene_hara");
     }
+
 }

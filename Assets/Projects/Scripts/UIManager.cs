@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class ScoreUIManager : MonoBehaviour
@@ -7,8 +7,8 @@ public class ScoreUIManager : MonoBehaviour
     public static ScoreUIManager Instance;
 
     [Header("UI Components")]
-    public Text scoreText;
-    public Text timerText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI timerText;
 
     [Header("UI Display Format")]
     public string scoreFormat = "Score: {0}";
@@ -75,7 +75,6 @@ public class ScoreUIManager : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("Time over! Ending game.");
         GameManager.Instance.EndGame();
     }
 }
