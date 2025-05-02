@@ -2,35 +2,27 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    public float lifespan = 5f;
+    public int scoreValue = 10;
     [HideInInspector] public TargetSpawner spawner;
 
     private void Start()
     {
-        Invoke(nameof(AutoDestroy), lifespan);
+        Invoke(nameof(AutoDestroy), 5f);
     }
 
     private void AutoDestroy()
     {
-        Debug.Log("AutoDestroy called, destroying: " + gameObject.name);
-        if (spawner != null)
-        {
-            spawner.NotifyTargetDestroyed();
-        }
+        spawner?.NotifyTargetDestroyed();
         Destroy(gameObject);
     }
 
     private void OnMouseDown()
     {
-        Debug.Log("OnMouseDown called, destroying: " + gameObject.name);
-
-        if (spawner != null)
-        {
-            spawner.NotifyTargetDestroyed();
-        }
+        spawner?.NotifyTargetDestroyed();
         Destroy(gameObject);
 
-        // ScoreManager.Instance.AddScore(10); // 必要ならスコア加算
+        ScoreManager.Instance.AddScore(scoreValue);
+        ScoreUIManager.Instance.AddScore(scoreValue);
     }
 
     private void OnDestroy()
