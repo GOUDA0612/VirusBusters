@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8644344561533795546}
   - component: {fileID: 274841017550255695}
   - component: {fileID: 4967625435548013227}
+  - component: {fileID: 6100354509439634726}
   m_Layer: 0
   m_Name: Baikin
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,13 +29,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6757469021620580766}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.046844915, w: 0.99890226}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 50, y: 50, z: 50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.37}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &9144833444775284115
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118,5 +119,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36e816cdb5991554db6b13c92b236205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 100
+  moveDistance: 0
   duration: 0.7
+--- !u!114 &6100354509439634726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6757469021620580766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd31a3bc882b9384db2f4235a82f2e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 10
+  spawner: {fileID: 0}
