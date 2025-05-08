@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class StartButton_hara : MonoBehaviour
 {
     public void OnstartButtonClicked(){
-        SceneManager.LoadScene("GameScene_hara");
+        SceneManager.LoadScene("GameScene_Taka");
     }
 }
