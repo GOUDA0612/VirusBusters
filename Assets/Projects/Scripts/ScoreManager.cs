@@ -5,6 +5,8 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager Instance;
 
     public int score = 0;
+    public float magnification = 1.5f;
+    private int combo = 0;  // コンボ数
 
     void Awake()
     {
@@ -19,9 +21,29 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int points)
+    // ウイルスを倒した時に呼ぶ
+    public void AddScoreWithCombo(int basePoint)
     {
-        score += points;
+        combo++;  // コンボ加算
+
+        // 得点計算
+        float point = basePoint * Mathf.Pow(magnification, combo - 1);
+        score += Mathf.RoundToInt(point);
+
+        Debug.Log($"得点: {point} (コンボ: {combo}), 合計スコア: {score}");
+
+        // UI更新
+        UIManager.Instance.AddScore(Mathf.RoundToInt(point));
+    }
+
+    // タイムアウトなどでコンボをリセットする
+    public void ResetCombo()
+    {
+        if (combo > 0)
+        {
+            Debug.Log($"コンボリセット！（コンボ数: {combo} → 0）");
+            combo = 0;
+        }
     }
 
     public void SaveScore()
@@ -32,5 +54,6 @@ public class ScoreManager : MonoBehaviour
     public void ResetScore()
     {
         score = 0;
+        combo = 0;
     }
 }

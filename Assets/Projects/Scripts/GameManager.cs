@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float timeLimit = 30f;  // インスペクターで設定可
     private float currentTime;
-    private bool isGameRunning = false;
 
     void Awake()
     {
@@ -24,31 +23,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        // シーン切り替え後も自動でタイマーがスタートする
+        currentTime = timeLimit;
+    }
+
     void Update()
     {
-        if (isGameRunning)
-        {
-            currentTime -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
 
-            if (currentTime <= 0f)
-            {
-                currentTime = 0f;
-                EndGame();
-            }
+        if (currentTime <= 0f)
+        {
+            currentTime = 0f;
+            EndGame();
         }
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene("GameScene_hara");
-        currentTime = timeLimit;
-        isGameRunning = true;
     }
 
     public void EndGame()
     {
-        isGameRunning = false;
-        SceneManager.LoadScene("ScoreScene_hara");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        SceneManager.LoadScene("ScoreScene_Hara");
     }
 
     public void ReturnToStart()
@@ -60,10 +61,5 @@ public class GameManager : MonoBehaviour
     public float GetCurrentTime()
     {
         return currentTime;
-    }
-
-    public bool IsGameRunning()
-    {
-        return isGameRunning;
     }
 }

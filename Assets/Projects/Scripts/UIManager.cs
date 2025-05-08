@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         // GameManagerから現在の残り時間を取得して表示
-        if (timerText != null && GameManager.Instance != null && GameManager.Instance.IsGameRunning())
+        if (timerText != null && GameManager.Instance != null)
         {
             float currentTime = GameManager.Instance.GetCurrentTime();
             timerText.text = $"{timeLabel}{Mathf.CeilToInt(currentTime)}";
