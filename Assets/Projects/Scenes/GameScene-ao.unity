@@ -254,7 +254,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPrefab: {fileID: 122713002375938172, guid: ef55974a475099b47873f86b22eaaccb, type: 3}
-  spawnInterval: 0
+  initialSpawnInterval: 1
+  minSpawnInterval: 0
+  spawnIntervalDecreaseRate: 0.9
+  speedUpInterval: 5
   minX: -5
   maxX: 5
   minY: -5
@@ -350,6 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 967509b0b803265429b744e409407c03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLimit: 10
 --- !u!4 &1218186083
 Transform:
   m_ObjectHideFlags: 0
@@ -758,10 +762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 0}
   timerText: {fileID: 0}
-  scoreFormat: 'Score: {0}'
-  timeFormat: 'Time: {0}'
-  score: 0
-  timeLimit: 10
+  scoreLabel: Score
+  timeLabel: Time
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

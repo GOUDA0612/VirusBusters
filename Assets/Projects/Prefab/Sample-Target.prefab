@@ -118,5 +118,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd31a3bc882b9384db2f4235a82f2e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 3
+  scoreValue: 10
+  DestroyTime: 3
   spawner: {fileID: 0}
