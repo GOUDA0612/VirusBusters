@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Projects/Scenes/TitleScene_hara.unity
     guid: f9e40d43094a1a041a53b1867e1d579a
   - enabled: 1
-    path: Assets/Projects/Scenes/GameScene_hara.unity
+    path: Assets/Projects/Scenes/GameScene_Taka.unity
     guid: a3800908b15f038499bf347f12c9e650
   - enabled: 1
     path: Assets/Projects/Scenes/ScoreScene_Hara.unity
