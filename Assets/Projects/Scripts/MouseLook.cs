@@ -6,8 +6,8 @@ public class MouseLook : MonoBehaviour
     public float mouseSensitivity = 100f;
     public Transform playerBody;
 
-    public GameObject crosshairUI;  // CrosshairのUIオブジェクト
-    public Vector2 crosshairSize = new Vector2(20f, 20f); // 幅・高さ設定
+    public GameObject crosshairUI;
+    public Vector2 crosshairSize = new Vector2(20f, 20f);
 
     private float xRotation = 0f;
     private bool isPaused = false;
@@ -18,7 +18,6 @@ public class MouseLook : MonoBehaviour
         {
             crosshairUI.SetActive(false); // 最初は非表示
 
-            // Crosshairのサイズを変更
             RectTransform rectTransform = crosshairUI.GetComponent<RectTransform>();
             if (rectTransform != null)
             {
@@ -103,5 +102,14 @@ public class MouseLook : MonoBehaviour
         UnlockCursor();
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneName);
+    }
+
+    // ✅ クロスヘアを外部から制御できる
+    public void SetCrosshairActive(bool active)
+    {
+        if (crosshairUI != null)
+        {
+            crosshairUI.SetActive(active);
+        }
     }
 }
