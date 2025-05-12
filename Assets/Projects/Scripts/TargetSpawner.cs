@@ -12,13 +12,13 @@ public class TargetSpawner : MonoBehaviour
     public int totalRareToSpawn = 5;
     public int totalSuperRareToSpawn = 2;
 
-    [Range(0f, 1f)] public float rareSpawnProbability = 0.05f;       // レア出現確率
-    [Range(0f, 1f)] public float superRareSpawnProbability = 0.01f;  // スーパーレア出現確率
+    [Range(0f, 1f)] public float rareSpawnProbability = 0.05f;
+    [Range(0f, 1f)] public float superRareSpawnProbability = 0.01f;
 
     public float initialSpawnInterval = 1f;
     public float minSpawnInterval = 0.2f;
-    public float spawnIntervalDecreaseRate = 0.95f; // 減少率
-    public float speedUpInterval = 10f; // 何秒ごとにスピードアップするか
+    public float spawnIntervalDecreaseRate = 0.95f;
+    public float speedUpInterval = 10f;
 
     public float minX = -1f;
     public float maxX = 1f;
@@ -28,19 +28,32 @@ public class TargetSpawner : MonoBehaviour
     public float maxZ = 6f;
 
     private float currentSpawnInterval;
-    private int spawnedRareCount = 0;
-    private int spawnedSuperRareCount = 0;
+    private bool isSpawning = false;
 
-    private void Start()
+    private Coroutine spawnCoroutine;
+    private Coroutine speedUpCoroutine;
+
+    public void StartSpawning()
     {
+        if (isSpawning) return;
+
+        isSpawning = true;
         currentSpawnInterval = initialSpawnInterval;
-        StartCoroutine(SpawnLoop());
-        StartCoroutine(SpeedUpLoop());
+        spawnCoroutine = StartCoroutine(SpawnLoop());
+        speedUpCoroutine = StartCoroutine(SpeedUpLoop());
+    }
+
+    public void StopSpawning()
+    {
+        isSpawning = false;
+
+        if (spawnCoroutine != null) StopCoroutine(spawnCoroutine);
+        if (speedUpCoroutine != null) StopCoroutine(speedUpCoroutine);
     }
 
     IEnumerator SpawnLoop()
     {
-        while (true)
+        while (isSpawning)
         {
             SpawnTarget();
             yield return new WaitForSeconds(currentSpawnInterval);
@@ -49,7 +62,7 @@ public class TargetSpawner : MonoBehaviour
 
     IEnumerator SpeedUpLoop()
     {
-        while (true)
+        while (isSpawning)
         {
             yield return new WaitForSeconds(speedUpInterval);
             currentSpawnInterval *= spawnIntervalDecreaseRate;
@@ -62,17 +75,13 @@ public class TargetSpawner : MonoBehaviour
     {
         GameObject prefabToSpawn = normalVirusPrefab;
 
-        // 残り時間を取得
         float remainingTime = GameManager.Instance.GetCurrentTime();
-
-        // レア/スーパーレア残り数
         int rareLeft = totalRareToSpawn - spawnedRareCount;
         int superRareLeft = totalSuperRareToSpawn - spawnedSuperRareCount;
 
         bool forcedRare = false;
         bool forcedSuperRare = false;
 
-        // --- 残り時間の割合を使って強制出現を判断 ---
         if (rareLeft > 0)
         {
             float estSpawnsLeft = remainingTime / currentSpawnInterval;
@@ -91,7 +100,6 @@ public class TargetSpawner : MonoBehaviour
             }
         }
 
-        // --- 出現ロジック ---
         if (superRareLeft > 0 && (forcedSuperRare || Random.value < superRareSpawnProbability))
         {
             prefabToSpawn = superRareVirusPrefab;
@@ -115,11 +123,14 @@ public class TargetSpawner : MonoBehaviour
             Random.Range(minZ, maxZ)
         );
 
-        GameObject newTarget = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        GameObject newTarget = Instantiate(prefabToSpawn, spawnPos, prefabToSpawn.transform.rotation);
         Target targetScript = newTarget.GetComponent<Target>();
         if (targetScript != null)
         {
             targetScript.spawner = this;
         }
     }
+
+    private int spawnedRareCount = 0;
+    private int spawnedSuperRareCount = 0;
 }

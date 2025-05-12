@@ -10,6 +10,6 @@ public class ScoreSceneButtonController : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("GameScene_hara");
+        SceneManager.LoadScene("GameScene_Taka");
     }
 }
