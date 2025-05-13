@@ -11,6 +11,7 @@ public class MouseLook : MonoBehaviour
 
     private float xRotation = 0f;
     private bool isPaused = false;
+    private bool isControlEnabled = false; // ★ 追加：視点操作フラグ
 
     void Start()
     {
@@ -19,7 +20,6 @@ public class MouseLook : MonoBehaviour
         {
             rectTransform.sizeDelta = crosshairSize;
         }
-        
 
         LockCursor();
     }
@@ -38,7 +38,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (!isPaused)
+        if (!isPaused && isControlEnabled) // ★ 追加：視点操作有効時のみ動く
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -90,12 +90,17 @@ public class MouseLook : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // ✅ クロスヘアを外部から制御できる
     public void SetCrosshairActive(bool active)
     {
         if (crosshairUI != null)
         {
             crosshairUI.SetActive(active);
         }
+    }
+
+    // ★ 追加：外部から視点操作ON/OFFを切り替える
+    public void SetControlEnabled(bool enabled)
+    {
+        isControlEnabled = enabled;
     }
 }
