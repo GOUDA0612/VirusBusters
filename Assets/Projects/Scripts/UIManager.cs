@@ -9,26 +9,27 @@ public class UIManager : MonoBehaviour
     [Header("UI Components")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI maxComboText;  // ★ 追加：MaxCombo表示用
 
     [Header("UI Labels")]
     [SerializeField] private string scoreLabel = "Score";
     [SerializeField] private string timeLabel = "Time";
+    [SerializeField] private string comboLabel = "Max Combo";  // ★ 追加：MaxCombo用ラベル
 
     [Header("Countdown UI")]
     [SerializeField] private TextMeshProUGUI countdownText;
-
     [SerializeField] private string readyText = "Ready...";
     [SerializeField] private string goText = "Go！";
-
     [SerializeField] private float readyDisplayTime = 1.5f;
     [SerializeField] private float goDisplayTime = 1f;
 
     [Header("End Text UI")]
     [SerializeField] private TextMeshProUGUI endText;
     [SerializeField] private string endMessage = "End！";
-    [SerializeField] private float endDisplayTime = 2f;  // ✅ インスペクターで設定可能
+    [SerializeField] private float endDisplayTime = 2f;
 
     private int score = 0;
+    private int maxCombo = 0;  // ★ 追加：最大コンボを保持
 
     void Awake()
     {
@@ -45,6 +46,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateScoreText();
+        UpdateMaxComboText();  // ★ 追加：初期化時に更新
     }
 
     void Update()
@@ -67,6 +69,25 @@ public class UIManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"{scoreLabel}{score}";
+        }
+    }
+
+    // ★ 追加：現在のコンボ数を受け取って最大値を更新
+    public void UpdateCombo(int currentCombo)
+    {
+        if (currentCombo > maxCombo)
+        {
+            maxCombo = currentCombo;
+            UpdateMaxComboText();
+        }
+    }
+
+    // ★ 追加：最大コンボ表示の更新
+    private void UpdateMaxComboText()
+    {
+        if (maxComboText != null)
+        {
+            maxComboText.text = $"{comboLabel}: {maxCombo}";
         }
     }
 
@@ -133,7 +154,6 @@ public class UIManager : MonoBehaviour
             mouseLook.SetCrosshairActive(false);
         }
 
-        // ✅ 一定時間後にシーン遷移コールバックを呼ぶ
         StartCoroutine(EndTextCoroutine(onComplete));
     }
 
