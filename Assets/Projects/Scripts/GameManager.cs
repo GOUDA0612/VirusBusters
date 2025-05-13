@@ -38,6 +38,13 @@ public class GameManager : MonoBehaviour
 
         // ゲーム開始前はクロスヘア非表示
         SetCrosshairActive(false);
+
+        // ★ ゲーム開始前は視点操作を無効化
+        MouseLook mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.SetControlEnabled(false);
+        }
     }
 
     void Update()
@@ -60,6 +67,13 @@ public class GameManager : MonoBehaviour
 
         // クロスヘアを表示
         SetCrosshairActive(true);
+
+        // ★ 視点操作を有効化
+        MouseLook mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.SetControlEnabled(true);
+        }
 
         // ターゲットスポーン開始
         TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
@@ -92,7 +106,8 @@ public class GameManager : MonoBehaviour
             mouseLook.SetCrosshairActive(false);
         }
 
-        // Endテキスト表示 + 遷移
+        ScoreManager.Instance.SaveScore();
+
         if (UIManager.Instance != null)
         {
             UIManager.Instance.ShowEndText(() =>
@@ -116,13 +131,21 @@ public class GameManager : MonoBehaviour
         return isCountingDown;
     }
 
-    // ★ クロスヘア表示の一元制御
     private void SetCrosshairActive(bool isActive)
     {
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
             mouseLook.SetCrosshairActive(isActive);
+        }
+    }
+
+    public static void DestroyInstance()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
         }
     }
 }

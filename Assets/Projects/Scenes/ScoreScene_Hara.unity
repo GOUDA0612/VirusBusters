@@ -2335,6 +2335,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1771363274}
+  maxComboText: {fileID: 1229617794}
+  scoreLabel: 'Score: '
+  maxComboLabel: 'Max Combo: '
 --- !u!4 &1740333715
 Transform:
   m_ObjectHideFlags: 0
