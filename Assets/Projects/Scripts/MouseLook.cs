@@ -14,16 +14,12 @@ public class MouseLook : MonoBehaviour
 
     void Start()
     {
-        if (crosshairUI != null)
+        RectTransform rectTransform = crosshairUI.GetComponent<RectTransform>();
+        if (rectTransform != null)
         {
-            crosshairUI.SetActive(false); // 最初は非表示
-
-            RectTransform rectTransform = crosshairUI.GetComponent<RectTransform>();
-            if (rectTransform != null)
-            {
-                rectTransform.sizeDelta = crosshairSize;
-            }
+            rectTransform.sizeDelta = crosshairSize;
         }
+        
 
         LockCursor();
     }
@@ -59,22 +55,12 @@ public class MouseLook : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        if (crosshairUI != null)
-        {
-            crosshairUI.SetActive(true);
-        }
     }
 
     void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-
-        if (crosshairUI != null)
-        {
-            crosshairUI.SetActive(false);
-        }
     }
 
     public void PauseGame()
