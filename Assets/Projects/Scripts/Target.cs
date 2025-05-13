@@ -11,8 +11,7 @@ public class Target : MonoBehaviour
     public AudioClip timeoutDestroySFX;
     [Range(0f, 10f)] public float sfxVolume = 1.0f;
 
-    [Header("Popup Effect")]
-    public GameObject scorePopupPrefab;
+    
 
     private void Start()
     {
@@ -32,7 +31,6 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         PlaySound(clickDestroySFX);
-        ShowScorePopup();
 
         Destroy(gameObject);
 
@@ -61,33 +59,9 @@ public class Target : MonoBehaviour
         Destroy(tempGO, clip.length);
     }
 
-    private void ShowScorePopup()
-{
-    if (scorePopupPrefab != null)
-    {
-        Debug.Log("✅ ScorePopup prefab is not null. Trying to instantiate...");
-
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        GameObject popup = Instantiate(scorePopupPrefab, UIManager.Instance.transform);
-        popup.transform.position = screenPos;
-
-        Debug.Log($"✅ Popup instantiated at screenPos: {screenPos}");
-
-        ScorePopup popupScript = popup.GetComponent<ScorePopup>();
-        if (popupScript != null)
-        {
-            Debug.Log("✅ ScorePopup script found. Setting text...");
-            popupScript.SetText($"+{scoreValue}");
-        }
-        else
-        {
-            Debug.LogWarning("⚠️ ScorePopup script NOT found on the prefab!");
-        }
-    }
-    else
-    {
-        Debug.LogWarning("⚠️ scorePopupPrefab is NULL!");
-    }
+   
 }
 
-}
+
+
+
