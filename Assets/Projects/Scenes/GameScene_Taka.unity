@@ -1162,19 +1162,39 @@ PrefabInstance:
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: scoreText
       value: 
+      objectReference: {fileID: 2004866161}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: timeLabel
+      value: 'Time:'
       objectReference: {fileID: 0}
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: timerText
       value: 
+      objectReference: {fileID: 488466439}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: comboLabel
+      value: Max  Combo
       objectReference: {fileID: 0}
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: endMessage
       value: End!
       objectReference: {fileID: 0}
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: scoreLabel
+      value: 'Score:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: countdownText
       value: 
       objectReference: {fileID: 348632792}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: goDisplayTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: endDisplayTime
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1414,7 +1434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 433957003064228682, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1486561682208871419, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       propertyPath: m_Sprite
