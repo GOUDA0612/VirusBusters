@@ -9,12 +9,12 @@ public class UIManager : MonoBehaviour
     [Header("UI Components")]
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI timerText;
-    [SerializeField] private TextMeshProUGUI maxComboText;  // ★ 追加：MaxCombo表示用
+    [SerializeField] private TextMeshProUGUI maxComboText;
 
     [Header("UI Labels")]
     [SerializeField] private string scoreLabel = "Score";
     [SerializeField] private string timeLabel = "Time";
-    [SerializeField] private string comboLabel = "Max Combo";  // ★ 追加：MaxCombo用ラベル
+    [SerializeField] private string comboLabel = "Max Combo";
 
     [Header("Countdown UI")]
     [SerializeField] private TextMeshProUGUI countdownText;
@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float endDisplayTime = 2f;
 
     private int score = 0;
-    private int maxCombo = 0;  // ★ 追加：最大コンボを保持
+    private int maxCombo = 0;
 
     void Awake()
     {
@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         UpdateScoreText();
-        UpdateMaxComboText();  // ★ 追加：初期化時に更新
+        UpdateMaxComboText();
     }
 
     void Update()
@@ -72,7 +72,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // ★ 追加：現在のコンボ数を受け取って最大値を更新
     public void UpdateCombo(int currentCombo)
     {
         if (currentCombo > maxCombo)
@@ -82,7 +81,6 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    // ★ 追加：最大コンボ表示の更新
     private void UpdateMaxComboText()
     {
         if (maxComboText != null)
@@ -96,13 +94,6 @@ public class UIManager : MonoBehaviour
         if (countdownText != null)
         {
             countdownText.gameObject.SetActive(true);
-        }
-
-        // クロスヘアを非表示
-        MouseLook mouseLook = FindObjectOfType<MouseLook>();
-        if (mouseLook != null)
-        {
-            mouseLook.SetCrosshairActive(false);
         }
 
         StartCoroutine(CountdownCoroutine(onComplete));
@@ -129,13 +120,6 @@ public class UIManager : MonoBehaviour
             countdownText.gameObject.SetActive(false);
         }
 
-        // クロスヘアを再表示
-        MouseLook mouseLook = FindObjectOfType<MouseLook>();
-        if (mouseLook != null)
-        {
-            mouseLook.SetCrosshairActive(true);
-        }
-
         onComplete?.Invoke();
     }
 
@@ -145,13 +129,6 @@ public class UIManager : MonoBehaviour
         {
             endText.text = endMessage;
             endText.gameObject.SetActive(true);
-        }
-
-        // クロスヘアを非表示
-        MouseLook mouseLook = FindObjectOfType<MouseLook>();
-        if (mouseLook != null)
-        {
-            mouseLook.SetCrosshairActive(false);
         }
 
         StartCoroutine(EndTextCoroutine(onComplete));
