@@ -551,6 +551,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6646662548845486588, guid: 469c1ce62050c8b4694639f810262982, type: 3}
+      propertyPath: bgmClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6f6e55b9b01cc42f9b8ed61d7e353b01, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -852,6 +856,10 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7759438400144624767, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
+      propertyPath: clickSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 04d8923e3a39e422aaa0a6a08c9a38c8, type: 3}
     - target: {fileID: 7810134435768896452, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
       propertyPath: popupPanel
       value: 
@@ -866,30 +874,8 @@ PrefabInstance:
     - {fileID: 7564047050526767302, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
     - {fileID: 4078601174899759193, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 122317939873553859, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1656731769}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
---- !u!1 &1656731768 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 122317939873553859, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
-  m_PrefabInstance: {fileID: 1656731767}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1656731769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1656731768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 476fe1906751eb946a8a035dd32f9e18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clickSFX: {fileID: 8300000, guid: 04d8923e3a39e422aaa0a6a08c9a38c8, type: 3}
-  sfxVolume: 1
 --- !u!1001 &1852598308
 PrefabInstance:
   m_ObjectHideFlags: 0
