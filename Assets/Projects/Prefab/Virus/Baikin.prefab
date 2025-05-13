@@ -136,6 +136,6 @@ MonoBehaviour:
   scoreValue: 2
   destroyTime: 5
   spawner: {fileID: 0}
-  clickDestroySFX: {fileID: 0}
-  timeoutDestroySFX: {fileID: 0}
+  clickDestroySFX: {fileID: 8300000, guid: 0a8d88a48ad044498a15248f22095804, type: 3}
+  timeoutDestroySFX: {fileID: 8300000, guid: 8303aa2745df847538c499dd728a4fe9, type: 3}
   sfxVolume: 1
