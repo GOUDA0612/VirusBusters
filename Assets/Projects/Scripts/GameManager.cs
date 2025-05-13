@@ -35,6 +35,9 @@ public class GameManager : MonoBehaviour
         {
             UIManager.Instance.StartCountdown(OnCountdownFinished);
         }
+
+        // ゲーム開始前はクロスヘア非表示
+        SetCrosshairActive(false);
     }
 
     void Update()
@@ -55,7 +58,10 @@ public class GameManager : MonoBehaviour
         isCountingDown = false;
         Debug.Log("カウントダウン終了、ゲームスタート！");
 
-        // スポーン開始
+        // クロスヘアを表示
+        SetCrosshairActive(true);
+
+        // ターゲットスポーン開始
         TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
         if (spawner != null)
         {
@@ -76,16 +82,17 @@ public class GameManager : MonoBehaviour
             spawner.StopSpawning();
         }
 
-        // マウス停止
+        // マウス停止とクロスヘア非表示
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
             mouseLook.enabled = false;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            mouseLook.SetCrosshairActive(false);
         }
 
-        // Endテキスト表示 + 終了後にシーン遷移
+        // Endテキスト表示 + 遷移
         if (UIManager.Instance != null)
         {
             UIManager.Instance.ShowEndText(() =>
@@ -95,7 +102,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            // 保険: UIManagerがない場合は即遷移
             SceneManager.LoadScene("ScoreScene_Hara");
         }
     }
@@ -108,5 +114,15 @@ public class GameManager : MonoBehaviour
     public bool IsCountingDown()
     {
         return isCountingDown;
+    }
+
+    // ★ クロスヘア表示の一元制御
+    private void SetCrosshairActive(bool isActive)
+    {
+        MouseLook mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.SetCrosshairActive(isActive);
+        }
     }
 }
