@@ -52,13 +52,16 @@ public class ScoreManager : MonoBehaviour
     }
 
     public void SaveScore(bool isStageCleared)
-{
-    score += maxCombo;
+    {
 
-    PlayerPrefs.SetInt("Score", score);
-    PlayerPrefs.SetInt("MaxCombo", maxCombo);
-    PlayerPrefs.SetInt("StageCleared", isStageCleared ? 1 : 0); // ★ 成否を保存
-}
+        PlayerPrefs.SetInt("Score", score);
+        PlayerPrefs.SetInt("MaxCombo", maxCombo);
+        PlayerPrefs.SetInt("StageCleared", isStageCleared ? 1 : 0); // ★ 成否を保存
+    }
+
+    public void sumScore(){
+        score += maxCombo;
+    }
 
 
     public void ResetScore()
