@@ -11,7 +11,8 @@ public class Target : MonoBehaviour
     public AudioClip timeoutDestroySFX;
     [Range(0f, 10f)] public float sfxVolume = 1.0f;
 
-    
+    [Header("Effect")]
+    [SerializeField] private GameObject destroyEffectPrefab; // ★ エフェクト用プレハブ参照
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Target : MonoBehaviour
     private void AutoDestroy()
     {
         PlaySound(timeoutDestroySFX);
+        SpawnDestroyEffect(); // ★ 自然消滅時のエフェクト（必要なら）
         Destroy(gameObject);
 
         // タイムアウト時はコンボをリセット
@@ -31,11 +33,15 @@ public class Target : MonoBehaviour
     private void OnMouseDown()
     {
         PlaySound(clickDestroySFX);
-
+        SpawnDestroyEffect(); // ★ クリック破壊時のエフェクト
         Destroy(gameObject);
 
         // スコア加算（コンボ付き）
         ScoreManager.Instance.AddScoreWithCombo(scoreValue);
+
+        // スコアポップアップ（任意）
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        UIManager.Instance?.ShowScorePopup("+" + scoreValue, screenPos, Color.green);
     }
 
     private void OnDestroy()
@@ -59,9 +65,11 @@ public class Target : MonoBehaviour
         Destroy(tempGO, clip.length);
     }
 
-   
+    private void SpawnDestroyEffect()
+    {
+        if (destroyEffectPrefab != null)
+        {
+            Instantiate(destroyEffectPrefab, transform.position, Quaternion.identity);
+        }
+    }
 }
-
-
-
-

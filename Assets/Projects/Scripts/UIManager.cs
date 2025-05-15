@@ -28,6 +28,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private string endMessage = "End！";
     [SerializeField] private float endDisplayTime = 2f;
 
+    [Header("Score Popup UI")]
+    [SerializeField] private GameObject scorePopupPrefab;       // ポップアップ用プレハブ
+    [SerializeField] private Transform scorePopupParent;        // Canvas上の配置先（例: Popups）
+
+
     private int maxCombo = 0;
 
     void Awake()
@@ -150,6 +155,20 @@ public class UIManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = $"{scoreLabel}{ScoreManager.Instance.score}";
+        }
+    }
+
+    public void ShowScorePopup(string text, Vector3 screenPosition, Color color)
+    {
+        if (scorePopupPrefab == null || scorePopupParent == null) return;
+
+        GameObject popup = Instantiate(scorePopupPrefab, scorePopupParent);
+        popup.transform.position = screenPosition;
+
+        ScorePopup popupScript = popup.GetComponent<ScorePopup>();
+        if (popupScript != null)
+        {
+            popupScript.SetText(text, color);
         }
     }
 
