@@ -141,6 +141,7 @@ MonoBehaviour:
   clickDestroySFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
   timeoutDestroySFX: {fileID: 8300000, guid: 5ffb8ab8515a34f7e942733691cf663d, type: 3}
   sfxVolume: 1
+  destroyEffectPrefab: {fileID: 2342929571483647743, guid: 33d0617ed4e764d45b79eb2ae5d8bfb4, type: 3}
 --- !u!1 &5246026188588811927
 GameObject:
   m_ObjectHideFlags: 0
