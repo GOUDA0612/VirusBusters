@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField] private float timeLimit = 30f;
 
+    [Header("Stage Goal Settings")]
+    [SerializeField] private int goalScore = 100; // ★ ステージクリアの目標スコア
+
     private float currentTime;
     private bool isCountingDown = false;
     private bool isGameEnded = false;
@@ -39,7 +42,7 @@ public class GameManager : MonoBehaviour
         // ゲーム開始前はクロスヘア非表示
         SetCrosshairActive(false);
 
-        // ★ ゲーム開始前は視点操作を無効化
+        // ゲーム開始前は視点操作を無効化
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
@@ -68,7 +71,7 @@ public class GameManager : MonoBehaviour
         // クロスヘアを表示
         SetCrosshairActive(true);
 
-        // ★ 視点操作を有効化
+        // 視点操作を有効化
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
@@ -106,8 +109,11 @@ public class GameManager : MonoBehaviour
             mouseLook.SetCrosshairActive(false);
         }
 
-        ScoreManager.Instance.SaveScore();
+        // ★ スコア目標達成判定と保存
+        bool isStageCleared = ScoreManager.Instance.score >= goalScore;
+        ScoreManager.Instance.SaveScore(isStageCleared);
 
+        // 終了UI表示とシーン遷移
         if (UIManager.Instance != null)
         {
             UIManager.Instance.ShowEndText(() =>
