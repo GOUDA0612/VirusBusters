@@ -84,6 +84,13 @@ public class GameManager : MonoBehaviour
         {
             spawner.StartSpawning();
         }
+
+        ForbiddenTargetSpawner forbiddenSpawner = FindObjectOfType<ForbiddenTargetSpawner>();
+        if (forbiddenSpawner != null)
+        {
+            forbiddenSpawner.StartSpawning();
+        }
+
     }
 
     public void EndGame()
@@ -109,6 +116,7 @@ public class GameManager : MonoBehaviour
             mouseLook.SetCrosshairActive(false);
         }
 
+        ScoreManager.Instance.sumScore();
         // ★ スコア目標達成判定と保存
         bool isStageCleared = ScoreManager.Instance.score >= goalScore;
         ScoreManager.Instance.SaveScore(isStageCleared);

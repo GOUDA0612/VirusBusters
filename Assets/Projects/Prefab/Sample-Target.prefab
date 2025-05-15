@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4694829694372280707}
   - component: {fileID: 3241343120615384081}
   - component: {fileID: 7577076016244395323}
-  - component: {fileID: 1182707184380190938}
+  - component: {fileID: 290110883977123659}
   m_Layer: 0
   m_Name: Sample-Target
   m_TagString: Target
@@ -106,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1182707184380190938
+--- !u!114 &290110883977123659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,13 +115,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 122713002375938172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31a3bc882b9384db2f4235a82f2e93, type: 3}
+  m_Script: {fileID: 11500000, guid: 27d2167b4a1568c4a940d21e7a6ee491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 2
-  destroyTime: 3
-  spawner: {fileID: 0}
-  clickDestroySFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
-  timeoutDestroySFX: {fileID: 8300000, guid: 5ffb8ab8515a34f7e942733691cf663d, type: 3}
-  sfxVolume: 0.5
-  scorePopupPrefab: {fileID: 3476273350372157550, guid: 1fb007f97b48bc643a10d5ddd9850424, type: 3}
+  penaltyScore: 30
+  errorSFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
+  sfxVolume: 1
+  destroyTime: 5

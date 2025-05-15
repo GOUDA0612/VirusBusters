@@ -28,7 +28,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private string endMessage = "End！";
     [SerializeField] private float endDisplayTime = 2f;
 
-    private int score = 0;
     private int maxCombo = 0;
 
     void Awake()
@@ -60,17 +59,18 @@ public class UIManager : MonoBehaviour
 
     public void AddScore(int points)
     {
-        score += points;
         UpdateScoreText();
     }
 
-    private void UpdateScoreText()
+
+    public void UpdateScoreText()
     {
         if (scoreText != null)
         {
-            scoreText.text = $"{scoreLabel}{score}";
+            scoreText.text = $"{scoreLabel}{ScoreManager.Instance.score}";
         }
     }
+
 
     public void UpdateCombo(int currentCombo)
     {
@@ -145,4 +145,12 @@ public class UIManager : MonoBehaviour
 
         onComplete?.Invoke();
     }
+    public void UpdateScoreDisplay()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = $"{scoreLabel}{ScoreManager.Instance.score}";
+        }
+    }
+
 }
