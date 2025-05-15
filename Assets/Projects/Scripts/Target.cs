@@ -23,7 +23,6 @@ public class Target : MonoBehaviour
     private void AutoDestroy()
     {
         PlaySound(timeoutDestroySFX);
-        SpawnDestroyEffect(); // ★ 自然消滅時のエフェクト（必要なら）
         Destroy(gameObject);
 
         // タイムアウト時はコンボをリセット
