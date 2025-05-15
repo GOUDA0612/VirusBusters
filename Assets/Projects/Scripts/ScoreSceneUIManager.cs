@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class ScoreSceneUIManager_Hara : MonoBehaviour
@@ -6,6 +8,7 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
     [Header("UI Components")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI maxComboText;
+    public GameObject nextStageButton; // ★ 追加：次のステージボタン
 
     [Header("Labels")]
     [SerializeField] private string scoreLabel = "Score: ";
@@ -13,30 +16,18 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
 
     void Start()
     {
-        int score = 0;
-        int maxCombo = 0;
-
-        if (ScoreManager.Instance != null)
-        {
-            score = ScoreManager.Instance.score;
-            maxCombo = ScoreManager.Instance.maxCombo;
-        }
-        else
-        {
-            Debug.LogWarning("ScoreManager.Instance is null, fallback to PlayerPrefs");
-            score = PlayerPrefs.GetInt("Score", 0);
-            maxCombo = PlayerPrefs.GetInt("MaxCombo", 0);
-        }
+        int score = PlayerPrefs.GetInt("Score", 0);
+        int maxCombo = PlayerPrefs.GetInt("MaxCombo", 0);
+        int isCleared = PlayerPrefs.GetInt("StageCleared", 0); // ★ クリア判定取得
 
         if (scoreText != null)
-        {
             scoreText.text = scoreLabel + score;
-        }
 
         if (maxComboText != null)
-        {
             maxComboText.text = maxComboLabel + maxCombo;
-        }
-    }
-}
 
+        if (nextStageButton != null)
+            nextStageButton.SetActive(isCleared == 1); // ★ Trueのときだけ表示
+    }
+
+    }

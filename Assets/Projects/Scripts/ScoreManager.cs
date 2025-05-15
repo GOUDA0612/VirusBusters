@@ -51,16 +51,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void SaveScore()
+    public void SaveScore(bool isStageCleared)
 {
-    // スコアに最大コンボ数を加算（1回だけ）
-    Debug.Log($"スコア加算前: {score}, 最大コンボ: {maxCombo}");
     score += maxCombo;
-    Debug.Log($"スコア加算後: {score}");
 
     PlayerPrefs.SetInt("Score", score);
     PlayerPrefs.SetInt("MaxCombo", maxCombo);
+    PlayerPrefs.SetInt("StageCleared", isStageCleared ? 1 : 0); // ★ 成否を保存
 }
+
 
     public void ResetScore()
     {

@@ -1031,8 +1031,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
+      propertyPath: goalScore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: timeLimit
-      value: 40
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5627561456386089551, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: m_LocalPosition.x
