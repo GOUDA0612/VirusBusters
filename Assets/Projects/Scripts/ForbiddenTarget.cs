@@ -22,25 +22,22 @@ public class ForbiddenTarget : MonoBehaviour
     }
 
     private void OnMouseDown()
-    {
-        // コンボリセット
-        ScoreManager.Instance.ResetCombo();
+{
+    ScoreManager.Instance.ResetCombo();
+    ScoreManager.Instance.score -= penaltyScore;
+    if (ScoreManager.Instance.score < 0) ScoreManager.Instance.score = 0;
 
-        // スコア減算（最低0まで）
-        ScoreManager.Instance.score -= penaltyScore;
-        if (ScoreManager.Instance.score < 0)
-            ScoreManager.Instance.score = 0;
+    PlaySound(errorSFX);
+    Destroy(gameObject);
 
-        Debug.Log($"禁止ターゲットを破壊！スコア -{penaltyScore}、コンボリセット");
+    // ポップアップ表示（赤文字でマイナス）
+    Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+    UIManager.Instance?.ShowScorePopup("-" + penaltyScore, screenPos, Color.red);
 
-        PlaySound(errorSFX);
+    UIManager.Instance?.UpdateScoreText();
+    UIManager.Instance?.UpdateCombo(0);
+}
 
-        // UI更新：AddScoreを使わずUpdateで表示のみリフレッシュ
-        UIManager.Instance?.UpdateScoreText();
-        UIManager.Instance?.UpdateCombo(0);
-
-        Destroy(gameObject);
-    }
 
 
 
