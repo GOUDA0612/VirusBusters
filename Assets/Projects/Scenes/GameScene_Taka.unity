@@ -2039,6 +2039,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 92563449}
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
+      propertyPath: spawnStopBeforeTime
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: rareSpawnProbability
       value: 0.2
       objectReference: {fileID: 0}
