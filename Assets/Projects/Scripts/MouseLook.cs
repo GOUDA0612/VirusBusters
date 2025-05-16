@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MouseLook : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class MouseLook : MonoBehaviour
 
     private float xRotation = 0f;
     private bool isPaused = false;
-    private bool isControlEnabled = false; // ★ 追加：視点操作フラグ
+    private bool isControlEnabled = false;
 
     void Start()
     {
@@ -21,7 +22,6 @@ public class MouseLook : MonoBehaviour
             rectTransform.sizeDelta = crosshairSize;
         }
 
-        LockCursor();
     }
 
     void Update()
@@ -38,7 +38,7 @@ public class MouseLook : MonoBehaviour
             }
         }
 
-        if (!isPaused && isControlEnabled) // ★ 追加：視点操作有効時のみ動く
+        if (!isPaused && isControlEnabled && !EventSystem.current.IsPointerOverGameObject())
         {
             float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -51,13 +51,13 @@ public class MouseLook : MonoBehaviour
         }
     }
 
-    void LockCursor()
+    public void LockCursor()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    void UnlockCursor()
+    public void UnlockCursor()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -98,7 +98,6 @@ public class MouseLook : MonoBehaviour
         }
     }
 
-    // ★ 追加：外部から視点操作ON/OFFを切り替える
     public void SetControlEnabled(bool enabled)
     {
         isControlEnabled = enabled;
