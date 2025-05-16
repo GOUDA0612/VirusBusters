@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TitleController_hara : MonoBehaviour
 {
-    public GameObject[] canvases; // キャンバス3つ
+    public GameObject[] canvases; 
     public Button nextButton;
     public Button backButton;
     public Button closeButton;
@@ -47,6 +47,6 @@ public class TitleController_hara : MonoBehaviour
         // ボタン表示制御
         backButton.gameObject.SetActive(currentIndex != 0);
         nextButton.gameObject.SetActive(currentIndex != canvases.Length - 1);
-        closeButton.gameObject.SetActive(currentIndex == 2);
+        closeButton.gameObject.SetActive(currentIndex == 4);
     }
 }
