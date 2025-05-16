@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class TargetSpawner : MonoBehaviour
 {
+    [Header("Spawn Stop Timing")]
+    [SerializeField] private float spawnStopBeforeTime = 3f;  // 残り3秒でスポーン停止
+
     [Header("Virus Prefabs")]
     public GameObject normalVirusPrefab;
     public GameObject rareVirusPrefab;
@@ -52,13 +55,24 @@ public class TargetSpawner : MonoBehaviour
     }
 
     IEnumerator SpawnLoop()
+{
+    while (isSpawning)
     {
-        while (isSpawning)
+        float remainingTime = GameManager.Instance.GetCurrentTime();
+
+        // ★ 残り時間が設定値以下になったら全スポーン停止
+        if (remainingTime <= spawnStopBeforeTime)
         {
-            SpawnTarget();
-            yield return new WaitForSeconds(currentSpawnInterval);
+            Debug.Log("残り時間が少ないためスポーン停止");
+            StopSpawning();  // ← speedUpCoroutine も止められる！
+            yield break;
         }
+
+        SpawnTarget();
+        yield return new WaitForSeconds(currentSpawnInterval);
     }
+}
+
 
     IEnumerator SpeedUpLoop()
     {
@@ -84,7 +98,7 @@ public class TargetSpawner : MonoBehaviour
 
         if (rareLeft > 0)
         {
-            float estSpawnsLeft = remainingTime / currentSpawnInterval;
+            float estSpawnsLeft = (remainingTime - spawnStopBeforeTime) / currentSpawnInterval;
             if (rareLeft >= estSpawnsLeft)
             {
                 forcedRare = true;
@@ -93,7 +107,7 @@ public class TargetSpawner : MonoBehaviour
 
         if (superRareLeft > 0)
         {
-            float estSpawnsLeft = remainingTime / currentSpawnInterval;
+            float estSpawnsLeft = (remainingTime - spawnStopBeforeTime) / currentSpawnInterval;
             if (superRareLeft >= estSpawnsLeft)
             {
                 forcedSuperRare = true;

@@ -36,10 +36,8 @@ public class GameManager : MonoBehaviour
     {
         currentTime = timeLimit;
 
-        string currentScene = SceneManager.GetActiveScene().name;
-        bool isSecondStage = currentScene == "GameScene2_Taka";
 
-        if (isSecondStage && tutorialPopup != null)
+        if (tutorialPopup != null)
         {
             tutorialPopup.SetActive(true);           // ポップアップ表示
             SetCrosshairActive(false);               // クロスヘア非表示
