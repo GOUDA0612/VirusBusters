@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class ScoreManager : MonoBehaviour
 {
@@ -53,7 +55,8 @@ public class ScoreManager : MonoBehaviour
 
     public void SaveScore(bool isStageCleared)
     {
-
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        PlayerPrefs.SetString("LastPlayedStage", currentSceneName); // ← これ追加！
         PlayerPrefs.SetInt("Score", score);
         PlayerPrefs.SetInt("MaxCombo", maxCombo);
         PlayerPrefs.SetInt("StageCleared", isStageCleared ? 1 : 0); // ★ 成否を保存
