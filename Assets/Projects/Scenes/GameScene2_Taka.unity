@@ -178,6 +178,14 @@ PrefabInstance:
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2330743152479465915, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330743152479465915, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330743152479465915, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
