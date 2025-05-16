@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597a84a5486a2a64bb897f5606a485bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 300
+  mouseSensitivity: 500
   playerBody: {fileID: 850179378}
   crosshairUI: {fileID: 2130486630}
   crosshairSize: {x: 65, y: 65}
@@ -1921,6 +1921,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5090627943334934477, guid: af1d6e73451ef4ce69478cf09b5cde0b, type: 3}
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
+      propertyPath: minSpawnInterval
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: totalRareToSpawn
       value: 7
       objectReference: {fileID: 0}
@@ -1936,6 +1940,10 @@ PrefabInstance:
       propertyPath: superRareVirusPrefab
       value: 
       objectReference: {fileID: 1482275513359392846, guid: c12c60ebf5aa749cbafcc29debce09d2, type: 3}
+    - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
+      propertyPath: spawnIntervalDecreaseRate
+      value: 0.95
+      objectReference: {fileID: 0}
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: superRareSpawnProbability
       value: 0.05
