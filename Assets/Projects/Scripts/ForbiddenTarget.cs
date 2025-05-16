@@ -23,6 +23,9 @@ public class ForbiddenTarget : MonoBehaviour
 
     private void OnMouseDown()
 {
+    if (GameManager.Instance != null && GameManager.Instance.IsGameEnded())
+            return;
+    
     ScoreManager.Instance.ResetCombo();
     ScoreManager.Instance.score -= penaltyScore;
     if (ScoreManager.Instance.score < 0) ScoreManager.Instance.score = 0;

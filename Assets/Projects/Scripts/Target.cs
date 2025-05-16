@@ -31,6 +31,9 @@ public class Target : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance != null && GameManager.Instance.IsGameEnded())
+            return;
+
         PlaySound(clickDestroySFX);
         SpawnDestroyEffect(); // ★ クリック破壊時のエフェクト
         Destroy(gameObject);

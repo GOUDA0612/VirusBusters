@@ -188,42 +188,42 @@ public class GameManager : MonoBehaviour
     }
 
     private void StartCountdown()
-{
-    SetCrosshairActive(false);
-    DisableMouseLook();
-
-    if (UIManager.Instance != null)
     {
-        UIManager.Instance.StartCountdown(() =>
+        SetCrosshairActive(false);
+        DisableMouseLook();
+
+        if (UIManager.Instance != null)
         {
-            // カウントダウン後に実際にゲーム開始する
-            isCountingDown = true;
-
-            EnableMouseLook();
-
-            MouseLook mouseLook = FindObjectOfType<MouseLook>();
-            if (mouseLook != null)
+            UIManager.Instance.StartCountdown(() =>
             {
-                mouseLook.LockCursor();
-            }
+                // カウントダウン後に実際にゲーム開始する
+                isCountingDown = true;
 
-            TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
-            if (spawner != null)
-            {
-                spawner.StartSpawning();
-            }
+                EnableMouseLook();
 
-            ForbiddenTargetSpawner forbiddenSpawner = FindObjectOfType<ForbiddenTargetSpawner>();
-            if (forbiddenSpawner != null)
-            {
-                forbiddenSpawner.StartSpawning();
-            }
+                MouseLook mouseLook = FindObjectOfType<MouseLook>();
+                if (mouseLook != null)
+                {
+                    mouseLook.LockCursor();
+                }
 
-            SetCrosshairActive(true);
-            Debug.Log("ゲームスタート：isCountingDown = true");
-        });
+                TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
+                if (spawner != null)
+                {
+                    spawner.StartSpawning();
+                }
+
+                ForbiddenTargetSpawner forbiddenSpawner = FindObjectOfType<ForbiddenTargetSpawner>();
+                if (forbiddenSpawner != null)
+                {
+                    forbiddenSpawner.StartSpawning();
+                }
+
+                SetCrosshairActive(true);
+                Debug.Log("ゲームスタート：isCountingDown = true");
+            });
+        }
     }
-}
 
 
     public static void DestroyInstance()
@@ -234,4 +234,10 @@ public class GameManager : MonoBehaviour
             Instance = null;
         }
     }
+    
+    public bool IsGameEnded()
+{
+    return isGameEnded;
+}
+
 }
