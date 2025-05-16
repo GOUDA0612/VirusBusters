@@ -107,28 +107,28 @@ public class UIManager : MonoBehaviour
     }
 
     private IEnumerator CountdownCoroutine(System.Action onComplete)
+{
+    if (countdownText != null)
     {
-        if (countdownText != null)
-        {
-            countdownText.text = readyText;
-        }
-
-        yield return new WaitForSeconds(readyDisplayTime);
-
-        if (countdownText != null)
-        {
-            countdownText.text = goText;
-        }
-
-        yield return new WaitForSeconds(goDisplayTime);
-
-        if (countdownText != null)
-        {
-            countdownText.gameObject.SetActive(false);
-        }
-
-        onComplete?.Invoke();
+        countdownText.text = readyText;
     }
+
+    yield return new WaitForSeconds(readyDisplayTime); // Ready... 表示
+
+    if (countdownText != null)
+    {
+        countdownText.text = goText;
+    }
+
+    yield return new WaitForSeconds(goDisplayTime); // ★ Start！表示の時間を待つ ← 追加
+
+    if (countdownText != null)
+    {
+        countdownText.gameObject.SetActive(false);
+    }
+
+    onComplete?.Invoke(); // ★ Start！表示が終わった後にゲーム開始！
+}
 
     public void ShowEndText(System.Action onComplete)
     {

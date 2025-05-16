@@ -10,7 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeLimit = 30f;
 
     [Header("Stage Goal Settings")]
-    [SerializeField] private int goalScore = 100; // ★ ステージクリアの目標スコア
+    [SerializeField] private int goalScore = 100;
+
+    [Header("Tutorial Popup")]
+    [SerializeField] private GameObject tutorialPopup;
 
     private float currentTime;
     private bool isCountingDown = false;
@@ -31,28 +34,33 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        isCountingDown = true;
         currentTime = timeLimit;
 
-        if (UIManager.Instance != null)
+        string currentScene = SceneManager.GetActiveScene().name;
+        bool isSecondStage = currentScene == "GameScene2_Taka";
+
+        if (isSecondStage && tutorialPopup != null)
         {
-            UIManager.Instance.StartCountdown(OnCountdownFinished);
+            tutorialPopup.SetActive(true);           // ポップアップ表示
+            SetCrosshairActive(false);               // クロスヘア非表示
+            DisableMouseLook();                      // 視点操作無効
+
+            // ★ カーソルを表示・ロック解除
+            MouseLook mouseLook = FindObjectOfType<MouseLook>();
+            if (mouseLook != null)
+            {
+                mouseLook.UnlockCursor();
+            }
         }
-
-        // ゲーム開始前はクロスヘア非表示
-        SetCrosshairActive(false);
-
-        // ゲーム開始前は視点操作を無効化
-        MouseLook mouseLook = FindObjectOfType<MouseLook>();
-        if (mouseLook != null)
+        else
         {
-            mouseLook.SetControlEnabled(false);
+            StartCountdown(); // 通常は即カウント開始
         }
     }
 
     void Update()
     {
-        if (isCountingDown || isGameEnded) return;
+        if (!isCountingDown || isGameEnded) return;
 
         currentTime -= Time.deltaTime;
 
@@ -68,17 +76,16 @@ public class GameManager : MonoBehaviour
         isCountingDown = false;
         Debug.Log("カウントダウン終了、ゲームスタート！");
 
-        // クロスヘアを表示
         SetCrosshairActive(true);
+        EnableMouseLook();
 
-        // 視点操作を有効化
+        // ★ カーソルをロックして非表示に
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
-            mouseLook.SetControlEnabled(true);
+            mouseLook.LockCursor();
         }
 
-        // ターゲットスポーン開始
         TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
         if (spawner != null)
         {
@@ -90,23 +97,19 @@ public class GameManager : MonoBehaviour
         {
             forbiddenSpawner.StartSpawning();
         }
-
     }
 
     public void EndGame()
     {
         if (isGameEnded) return;
-
         isGameEnded = true;
 
-        // スポーン停止
         TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
         if (spawner != null)
         {
             spawner.StopSpawning();
         }
 
-        // マウス停止とクロスヘア非表示
         MouseLook mouseLook = FindObjectOfType<MouseLook>();
         if (mouseLook != null)
         {
@@ -117,11 +120,9 @@ public class GameManager : MonoBehaviour
         }
 
         ScoreManager.Instance.sumScore();
-        // ★ スコア目標達成判定と保存
         bool isStageCleared = ScoreManager.Instance.score >= goalScore;
         ScoreManager.Instance.SaveScore(isStageCleared);
 
-        // 終了UI表示とシーン遷移
         if (UIManager.Instance != null)
         {
             UIManager.Instance.ShowEndText(() =>
@@ -153,6 +154,77 @@ public class GameManager : MonoBehaviour
             mouseLook.SetCrosshairActive(isActive);
         }
     }
+
+    private void DisableMouseLook()
+    {
+        MouseLook mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.SetControlEnabled(false);
+        }
+    }
+
+    private void EnableMouseLook()
+    {
+        MouseLook mouseLook = FindObjectOfType<MouseLook>();
+        if (mouseLook != null)
+        {
+            mouseLook.SetControlEnabled(true);
+        }
+    }
+
+    public void StartGameAfterTutorial()
+    {
+        if (!isCountingDown && !isGameEnded)
+        {
+            StartCoroutine(DelayedStart());
+        }
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return null;
+        StartCountdown();
+    }
+
+    private void StartCountdown()
+{
+    SetCrosshairActive(false);
+    DisableMouseLook();
+
+    if (UIManager.Instance != null)
+    {
+        UIManager.Instance.StartCountdown(() =>
+        {
+            // カウントダウン後に実際にゲーム開始する
+            isCountingDown = true;
+
+            EnableMouseLook();
+
+            MouseLook mouseLook = FindObjectOfType<MouseLook>();
+            if (mouseLook != null)
+            {
+                mouseLook.LockCursor();
+            }
+
+            TargetSpawner spawner = FindObjectOfType<TargetSpawner>();
+            if (spawner != null)
+            {
+                spawner.StartSpawning();
+            }
+
+            ForbiddenTargetSpawner forbiddenSpawner = FindObjectOfType<ForbiddenTargetSpawner>();
+            if (forbiddenSpawner != null)
+            {
+                forbiddenSpawner.StartSpawning();
+            }
+
+            SetCrosshairActive(true);
+            Debug.Log("ゲームスタート：isCountingDown = true");
+        });
+    }
+}
+
 
     public static void DestroyInstance()
     {
