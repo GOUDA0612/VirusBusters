@@ -39,8 +39,8 @@ public class Target : MonoBehaviour
         ScoreManager.Instance.AddScoreWithCombo(scoreValue);
 
         // スコアポップアップ（任意）
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-        UIManager.Instance?.ShowScorePopup("+" + scoreValue, screenPos, Color.green);
+        UIManager.Instance?.ShowScorePopup("+" + scoreValue, Color.green);
+
     }
 
     private void OnDestroy()

@@ -31,8 +31,7 @@ public class ForbiddenTarget : MonoBehaviour
     Destroy(gameObject);
 
     // ポップアップ表示（赤文字でマイナス）
-    Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
-    UIManager.Instance?.ShowScorePopup("-" + penaltyScore, screenPos, Color.red);
+    UIManager.Instance?.ShowScorePopup("-" + penaltyScore, Color.red);
 
     UIManager.Instance?.UpdateScoreText();
     UIManager.Instance?.UpdateCombo(0);

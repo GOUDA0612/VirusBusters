@@ -31,6 +31,8 @@ public class UIManager : MonoBehaviour
     [Header("Score Popup UI")]
     [SerializeField] private GameObject scorePopupPrefab;       // ポップアップ用プレハブ
     [SerializeField] private Transform scorePopupParent;        // Canvas上の配置先（例: Popups）
+    // ★ 追加：ポップアップを表示したい位置（UIオブジェクトのRectTransform）
+    [SerializeField] private RectTransform popupFixedPosition;
 
 
     private int maxCombo = 0;
@@ -158,26 +160,14 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowScorePopup(string text, Vector3 screenPosition, Color color)
+    public void ShowScorePopup(string text, Color color)
 {
-    if (scorePopupPrefab == null || scorePopupParent == null) return;
+    if (scorePopupPrefab == null || scorePopupParent == null || popupFixedPosition == null) return;
 
     GameObject popup = Instantiate(scorePopupPrefab, scorePopupParent);
 
-    // 🎯 Canvasの種類に合わせたカメラ（通常はnullでOK）
-    Canvas canvas = scorePopupParent.GetComponentInParent<Canvas>();
-    Camera uiCamera = canvas.renderMode == RenderMode.ScreenSpaceCamera ? canvas.worldCamera : null;
-
-    // 🎯 スクリーン座標 → ローカルUI座標に変換
-    RectTransformUtility.ScreenPointToLocalPointInRectangle(
-        scorePopupParent.GetComponent<RectTransform>(),
-        screenPosition,
-        uiCamera,
-        out Vector2 localPoint
-    );
-
     RectTransform popupRect = popup.GetComponent<RectTransform>();
-    popupRect.anchoredPosition = localPoint;
+    popupRect.anchoredPosition = popupFixedPosition.anchoredPosition;
 
     ScorePopup popupScript = popup.GetComponent<ScorePopup>();
     if (popupScript != null)
@@ -185,6 +175,7 @@ public class UIManager : MonoBehaviour
         popupScript.SetText(text, color);
     }
 }
+
 
 
 
