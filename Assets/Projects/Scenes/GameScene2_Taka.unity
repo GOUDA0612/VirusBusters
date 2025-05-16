@@ -715,7 +715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: timeLimit
-      value: 10
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5627561456386089551, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: m_LocalPosition.x

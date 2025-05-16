@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd31a3bc882b9384db2f4235a82f2e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 6
+  scoreValue: 4
   destroyTime: 5
   spawner: {fileID: 0}
   clickDestroySFX: {fileID: 8300000, guid: f69666c9d303d444e877b9c715b4aee5, type: 3}
