@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 8051902056923556620}
   - component: {fileID: 6893639323552774326}
   - component: {fileID: 5581513265107297303}
-  - component: {fileID: 1582996287158056956}
+  - component: {fileID: 7816902488196435904}
   m_Layer: 0
   m_Name: GoodVirus
   m_TagString: Untagged
@@ -5036,7 +5036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDistance: 1
   duration: 1
---- !u!114 &1582996287158056956
+--- !u!114 &7816902488196435904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5045,13 +5045,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3471873535406101193}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd31a3bc882b9384db2f4235a82f2e93, type: 3}
+  m_Script: {fileID: 11500000, guid: 27d2167b4a1568c4a940d21e7a6ee491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreValue: 10
-  destroyTime: 5
-  spawner: {fileID: 0}
-  clickDestroySFX: {fileID: 0}
-  timeoutDestroySFX: {fileID: 0}
+  penaltyScore: 30
+  errorSFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
   sfxVolume: 1
-  destroyEffectPrefab: {fileID: 0}
+  destroyTime: 5

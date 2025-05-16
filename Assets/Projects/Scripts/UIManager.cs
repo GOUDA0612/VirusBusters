@@ -159,17 +159,33 @@ public class UIManager : MonoBehaviour
     }
 
     public void ShowScorePopup(string text, Vector3 screenPosition, Color color)
+{
+    if (scorePopupPrefab == null || scorePopupParent == null) return;
+
+    GameObject popup = Instantiate(scorePopupPrefab, scorePopupParent);
+
+    // 🎯 Canvasの種類に合わせたカメラ（通常はnullでOK）
+    Canvas canvas = scorePopupParent.GetComponentInParent<Canvas>();
+    Camera uiCamera = canvas.renderMode == RenderMode.ScreenSpaceCamera ? canvas.worldCamera : null;
+
+    // 🎯 スクリーン座標 → ローカルUI座標に変換
+    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        scorePopupParent.GetComponent<RectTransform>(),
+        screenPosition,
+        uiCamera,
+        out Vector2 localPoint
+    );
+
+    RectTransform popupRect = popup.GetComponent<RectTransform>();
+    popupRect.anchoredPosition = localPoint;
+
+    ScorePopup popupScript = popup.GetComponent<ScorePopup>();
+    if (popupScript != null)
     {
-        if (scorePopupPrefab == null || scorePopupParent == null) return;
-
-        GameObject popup = Instantiate(scorePopupPrefab, scorePopupParent);
-        popup.transform.position = screenPosition;
-
-        ScorePopup popupScript = popup.GetComponent<ScorePopup>();
-        if (popupScript != null)
-        {
-            popupScript.SetText(text, color);
-        }
+        popupScript.SetText(text, color);
     }
+}
+
+
 
 }

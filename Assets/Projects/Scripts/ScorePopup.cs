@@ -1,45 +1,15 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class ScorePopup : MonoBehaviour
 {
-    public float floatUpDistance = 50f;
-    public float duration = 1f;
+    [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private float lifetime = 1.5f;
 
-    private Vector3 startPos;
-    private Vector3 endPos;
-    private float elapsedTime = 0f;
-    private TextMeshProUGUI text;
-
-    void Start()
+    public void SetText(string text, Color color)
     {
-        text = GetComponent<TextMeshProUGUI>();
-        startPos = transform.position;
-        endPos = startPos + new Vector3(0, floatUpDistance, 0);
-    }
-
-    void Update()
-    {
-        elapsedTime += Time.deltaTime;
-        float t = elapsedTime / duration;
-
-        transform.position = Vector3.Lerp(startPos, endPos, t);
-
-        if (text != null)
-        {
-            text.alpha = 1 - t;
-        }
-
-        if (t >= 1f)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void SetText(string value, Color color)
-    {
-        if (text == null) text = GetComponent<TextMeshProUGUI>();
-        text.text = value;
-        text.color = color;
+        textMesh.text = text;
+        textMesh.color = color;
+        Destroy(gameObject, lifetime); // 一定時間後に削除
     }
 }

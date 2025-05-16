@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad0ab2d217638874996fbc29406a42ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floatUpDistance: 50
-  duration: 1
+  textMesh: {fileID: 1430131907137691148}
+  lifetime: 1.5
