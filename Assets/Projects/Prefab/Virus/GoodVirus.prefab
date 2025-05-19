@@ -5051,4 +5051,4 @@ MonoBehaviour:
   penaltyScore: 30
   errorSFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
   sfxVolume: 0.2
-  destroyTime: 5
+  destroyTime: 3
