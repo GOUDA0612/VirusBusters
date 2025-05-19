@@ -318,6 +318,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1539665572637257022, guid: 4c43df5f0be42a64c8693d867721f031, type: 3}
   m_PrefabInstance: {fileID: 36769374}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &37752698 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8808032469337771405, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+  m_PrefabInstance: {fileID: 1852598308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &712345732
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +509,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &877850462 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7549362638025407591, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+  m_PrefabInstance: {fileID: 1852598308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &900946976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1141,6 +1151,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 136385090494627675, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_fontStyle
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 136385090494627675, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2126391302261143668, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1161,6 +1179,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3267946948143101217, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3789472007920184208, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_Name
       value: PopUp
@@ -1173,6 +1195,26 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4261962174528584163, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: canvases.Array.data[1]
+      value: 
+      objectReference: {fileID: 877850462}
+    - target: {fileID: 4261962174528584163, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: canvases.Array.data[2]
+      value: 
+      objectReference: {fileID: 955905887}
+    - target: {fileID: 4261962174528584163, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: canvases.Array.data[3]
+      value: 
+      objectReference: {fileID: 2020048082}
+    - target: {fileID: 4261962174528584163, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: canvases.Array.data[4]
+      value: 
+      objectReference: {fileID: 37752698}
+    - target: {fileID: 4261962174528584163, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: canvases.Array.data[5]
+      value: 
+      objectReference: {fileID: 934636355}
     - target: {fileID: 4730902940552196436, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1253,6 +1295,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5369315037099175685, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6356193560236399777, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -1318,6 +1364,11 @@ PrefabInstance:
       addedObject: {fileID: 934636356}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+--- !u!1 &2020048082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4305189131015916446, guid: 295026031f551404bb6af9fb81a01f73, type: 3}
+  m_PrefabInstance: {fileID: 1852598308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2110430455
 PrefabInstance:
   m_ObjectHideFlags: 0
