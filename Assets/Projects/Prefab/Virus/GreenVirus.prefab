@@ -139,8 +139,9 @@ MonoBehaviour:
   destroyTime: 5
   spawner: {fileID: 0}
   clickDestroySFX: {fileID: 8300000, guid: f69666c9d303d444e877b9c715b4aee5, type: 3}
-  timeoutDestroySFX: {fileID: 8300000, guid: 8303aa2745df847538c499dd728a4fe9, type: 3}
-  sfxVolume: 1
+  timeoutDestroySFX: {fileID: 8300000, guid: 5ffb8ab8515a34f7e942733691cf663d, type: 3}
+  clickVolume: 1
+  timeoutVolume: 0.2
   destroyEffectPrefab: {fileID: 2342929571483647743, guid: 33d0617ed4e764d45b79eb2ae5d8bfb4, type: 3}
 --- !u!1 &7090930695849906685
 GameObject:

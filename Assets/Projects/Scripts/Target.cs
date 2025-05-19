@@ -9,23 +9,22 @@ public class Target : MonoBehaviour
     [Header("Sound Effects")]
     public AudioClip clickDestroySFX;
     public AudioClip timeoutDestroySFX;
-    [Range(0f, 10f)] public float sfxVolume = 1.0f;
+
+    [Range(0f, 1f)] public float clickVolume = 1.0f;      // ★ クリック用音量
+    [Range(0f, 1f)] public float timeoutVolume = 1.0f;    // ★ タイムアウト用音量
 
     [Header("Effect")]
-    [SerializeField] private GameObject destroyEffectPrefab; // ★ エフェクト用プレハブ参照
+    [SerializeField] private GameObject destroyEffectPrefab;
 
     private void Start()
     {
-        // 指定時間後に自動で消滅
         Invoke(nameof(AutoDestroy), destroyTime);
     }
 
     private void AutoDestroy()
     {
-        PlaySound(timeoutDestroySFX);
+        PlaySound(timeoutDestroySFX, timeoutVolume); // ★ タイムアウト音量
         Destroy(gameObject);
-
-        // タイムアウト時はコンボをリセット
         ScoreManager.Instance.ResetCombo();
     }
 
@@ -34,25 +33,19 @@ public class Target : MonoBehaviour
         if (GameManager.Instance != null && GameManager.Instance.IsGameEnded())
             return;
 
-        PlaySound(clickDestroySFX);
-        SpawnDestroyEffect(); // ★ クリック破壊時のエフェクト
+        PlaySound(clickDestroySFX, clickVolume); // ★ クリック音量
+        SpawnDestroyEffect();
         Destroy(gameObject);
-
-        // スコア加算（コンボ付き）
         ScoreManager.Instance.AddScoreWithCombo(scoreValue);
-
-        // スコアポップアップ（任意）
         UIManager.Instance?.ShowScorePopup("+" + scoreValue, Color.green);
-
     }
 
     private void OnDestroy()
     {
-        // 保険でInvokeを解除
         CancelInvoke(nameof(AutoDestroy));
     }
 
-    private void PlaySound(AudioClip clip)
+    private void PlaySound(AudioClip clip, float volume) // ★ 第2引数にvolume追加
     {
         if (clip == null) return;
 
@@ -60,8 +53,8 @@ public class Target : MonoBehaviour
         AudioSource aSource = tempGO.AddComponent<AudioSource>();
 
         aSource.clip = clip;
-        aSource.volume = sfxVolume;
-        aSource.spatialBlend = 0f;  // 2D音声にする
+        aSource.volume = volume;  // ★ 個別音量
+        aSource.spatialBlend = 0f;
         aSource.Play();
 
         Destroy(tempGO, clip.length);

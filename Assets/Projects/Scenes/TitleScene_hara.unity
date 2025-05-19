@@ -557,6 +557,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6646662548845486588, guid: 469c1ce62050c8b4694639f810262982, type: 3}
+      propertyPath: volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646662548845486588, guid: 469c1ce62050c8b4694639f810262982, type: 3}
       propertyPath: bgmClip
       value: 
       objectReference: {fileID: 8300000, guid: 6f6e55b9b01cc42f9b8ed61d7e353b01, type: 3}
@@ -1093,6 +1097,10 @@ PrefabInstance:
       propertyPath: clickSFX
       value: 
       objectReference: {fileID: 8300000, guid: 04d8923e3a39e422aaa0a6a08c9a38c8, type: 3}
+    - target: {fileID: 7759438400144624767, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
+      propertyPath: sfxVolume
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7810134435768896452, guid: 48d96363c37871941bd6967c9d9674b2, type: 3}
       propertyPath: popupPanel
       value: 

@@ -1180,7 +1180,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: goalScore
-      value: 1
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: timeLimit
@@ -1348,6 +1348,41 @@ MonoBehaviour:
   playerBody: {fileID: 850179378}
   crosshairUI: {fileID: 2130486630}
   crosshairSize: {x: 65, y: 65}
+--- !u!1 &1177920369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1177920370}
+  m_Layer: 5
+  m_Name: ScorePopupParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1177920370
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177920369}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 232462329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -700, y: -350}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &1253152918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1399,6 +1434,10 @@ PrefabInstance:
     - target: {fileID: 6083286994071967092, guid: 469c1ce62050c8b4694639f810262982, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646662548845486588, guid: 469c1ce62050c8b4694639f810262982, type: 3}
+      propertyPath: volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6646662548845486588, guid: 469c1ce62050c8b4694639f810262982, type: 3}
       propertyPath: bgmClip
@@ -1509,6 +1548,18 @@ PrefabInstance:
       propertyPath: endDisplayTime
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: scorePopupParent
+      value: 
+      objectReference: {fileID: 1177920370}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: scorePopupPrefab
+      value: 
+      objectReference: {fileID: 4710904199804379727, guid: 18fb6e456822be2488a2e4aee3a8b1f1, type: 3}
+    - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
+      propertyPath: popupFixedPosition
+      value: 
+      objectReference: {fileID: 1667302636}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1654,6 +1705,41 @@ Transform:
   - {fileID: 877058590334046168}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1667302635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667302636}
+  m_Layer: 5
+  m_Name: ScorePopupAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1667302636
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667302635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 232462329}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -10, y: 145}
+  m_SizeDelta: {x: 150, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1889637107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,6 +1997,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 348632791}
+    - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1177920370}
+    - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1667302636}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
 --- !u!1 &2004866159
