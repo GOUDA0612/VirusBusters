@@ -11,6 +11,7 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
     public TextMeshProUGUI maxComboText;
     public TextMeshProUGUI baseScoreText;
     [Header("Effects")]
+    public TextMeshProUGUI normaClearText; // ★ 追加：第一ステージ用の表示
     public GameClearTextEffect gameClearTextEffect; // Inspectorからアタッチ
 
     
@@ -36,26 +37,33 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
 
     if (maxComboText != null)
         maxComboText.text = maxComboLabel + maxCombo;
-        
+
     if (baseScoreText != null)
-        baseScoreText.text = baseScoreLabel + (score-maxCombo);
+        baseScoreText.text = baseScoreLabel + (score - maxCombo);
 
     if (nextStageButton != null)
-            nextStageButton.SetActive(isCleared == 1 && !isSecondStage);
+        nextStageButton.SetActive(isCleared == 1 && !isSecondStage);
 
-    if (gameClearText != null && isCleared == 1 && isSecondStage)
+    if (isCleared == 1)
     {
-        gameClearText.gameObject.SetActive(true);
-        if (gameClearTextEffect != null)
+        if (isSecondStage)
         {
-            gameClearTextEffect.PlayClearEffect();
+            // 第二ステージ → GameClear!!
+            if (gameClearText != null)
+                gameClearText.gameObject.SetActive(true);
+
+            if (gameClearTextEffect != null)
+                gameClearTextEffect.PlayClearEffect();
+            else
+                Debug.LogWarning("GameClearTextEffect が設定されていません");
         }
         else
         {
-        Debug.LogWarning("GameClearTextEffect が設定されていません");
+            // 第一ステージ → ノルマクリア！
+            if (normaClearText != null)
+                normaClearText.gameObject.SetActive(true);
+        }
     }
-}
-
 }
 
 
