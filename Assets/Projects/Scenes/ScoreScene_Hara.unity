@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 404938975}
   - component: {fileID: 404938974}
   - component: {fileID: 404938973}
-  - component: {fileID: 404938976}
+  - component: {fileID: 404938977}
   m_Layer: 0
   m_Name: GameCleartext
   m_TagString: Untagged
@@ -805,7 +805,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 80}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &404938976
+--- !u!114 &404938977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -814,11 +814,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 404938972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d175c85b2f559e4c833f235b1af6b16, type: 3}
+  m_Script: {fileID: 11500000, guid: cfd1a8b2015e3d64b890b6d8718b00b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleSpeed: 3
-  scaleAmount: 0.08
+  clearText: {fileID: 404938973}
+  clearSE1: {fileID: 8300000, guid: 6dc1c189002e64431b34a58e1b094080, type: 3}
+  volume1: 0.25
+  clearSE2: {fileID: 8300000, guid: 1653b4e4cdc1e4ad08f4e5a3fab00fbf, type: 3}
+  volume2: 0.5
+  pulseScaleAmount: 0.1
+  pulseSpeed: 1
 --- !u!1001 &409971984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2946,6 +2951,7 @@ MonoBehaviour:
   scoreText: {fileID: 1771363274}
   maxComboText: {fileID: 1229617794}
   baseScoreText: {fileID: 1312518886}
+  gameClearTextEffect: {fileID: 404938977}
   nextStageButton: {fileID: 179772847}
   gameClearText: {fileID: 404938973}
   totalScoreLabel: 'Score: '

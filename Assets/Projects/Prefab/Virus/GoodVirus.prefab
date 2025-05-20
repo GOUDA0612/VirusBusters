@@ -5048,7 +5048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27d2167b4a1568c4a940d21e7a6ee491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  penaltyScore: 30
+  penaltyScore: 20
   errorSFX: {fileID: 8300000, guid: 1165413ae1ff64d9aa0b39ba762991fd, type: 3}
   sfxVolume: 0.2
   destroyTime: 3
