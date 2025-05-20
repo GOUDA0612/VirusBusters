@@ -2445,6 +2445,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5090627943334934477, guid: af1d6e73451ef4ce69478cf09b5cde0b, type: 3}
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
+      propertyPath: minSpawnInterval
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: totalRareToSpawn
       value: 10
       objectReference: {fileID: 0}
@@ -2463,6 +2467,10 @@ PrefabInstance:
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: totalSuperRareToSpawn
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
+      propertyPath: spawnIntervalDecreaseRate
+      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 3415755925386823051, guid: 93232ed0bbb724d9592581d1b6556a4a, type: 3}
       propertyPath: superRareSpawnProbability

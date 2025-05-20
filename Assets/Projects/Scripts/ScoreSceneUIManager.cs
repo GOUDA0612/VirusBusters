@@ -10,6 +10,9 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI maxComboText;
     public TextMeshProUGUI baseScoreText;
+    [Header("Effects")]
+    public GameClearTextEffect gameClearTextEffect; // Inspectorからアタッチ
+
     
     public GameObject nextStageButton; // ★ 追加：次のステージボタン
     public TextMeshProUGUI gameClearText; // ★ GameClear表示用テキスト
@@ -40,9 +43,20 @@ public class ScoreSceneUIManager_Hara : MonoBehaviour
     if (nextStageButton != null)
             nextStageButton.SetActive(isCleared == 1 && !isSecondStage);
 
-    if (gameClearText != null)
-        gameClearText.gameObject.SetActive(isCleared == 1 && isSecondStage);
+    if (gameClearText != null && isCleared == 1 && isSecondStage)
+    {
+        gameClearText.gameObject.SetActive(true);
+        if (gameClearTextEffect != null)
+        {
+            gameClearTextEffect.PlayClearEffect();
+        }
+        else
+        {
+        Debug.LogWarning("GameClearTextEffect が設定されていません");
+    }
+}
+
 }
 
 
-    }
+}
