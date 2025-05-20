@@ -2306,7 +2306,7 @@ MonoBehaviour:
   mouseSensitivity: 300
   playerBody: {fileID: 125091355}
   crosshairUI: {fileID: 1664573674}
-  crosshairSize: {x: 30, y: 30}
+  crosshairSize: {x: 40, y: 40}
 --- !u!81 &1721179087
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2901,6 +2901,14 @@ PrefabInstance:
     - target: {fileID: 3060246965225713577, guid: e6cead6d1db9bac4c88267cd77c5508d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499579368025475637, guid: e6cead6d1db9bac4c88267cd77c5508d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.650024
+      objectReference: {fileID: 0}
+    - target: {fileID: 5499579368025475637, guid: e6cead6d1db9bac4c88267cd77c5508d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.650024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

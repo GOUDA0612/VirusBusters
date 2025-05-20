@@ -1208,7 +1208,7 @@ MonoBehaviour:
   mouseSensitivity: 500
   playerBody: {fileID: 850179378}
   crosshairUI: {fileID: 2130486630}
-  crosshairSize: {x: 30, y: 30}
+  crosshairSize: {x: 40, y: 40}
 --- !u!1 &1177920369
 GameObject:
   m_ObjectHideFlags: 0
