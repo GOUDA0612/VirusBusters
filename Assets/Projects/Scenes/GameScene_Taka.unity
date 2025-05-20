@@ -1041,7 +1041,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: goalScore
-      value: 130
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 3174011314083085124, guid: 6feae313569cd40d5883591e15e7b9b9, type: 3}
       propertyPath: timeLimit
