@@ -734,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 130, y: -40}
+  m_AnchoredPosition: {x: 180, y: -40}
   m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &488466439
@@ -784,8 +784,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1208,7 +1208,7 @@ MonoBehaviour:
   mouseSensitivity: 500
   playerBody: {fileID: 850179378}
   crosshairUI: {fileID: 2130486630}
-  crosshairSize: {x: 65, y: 65}
+  crosshairSize: {x: 30, y: 30}
 --- !u!1 &1177920369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,7 +1387,7 @@ PrefabInstance:
       objectReference: {fileID: 488466439}
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: comboLabel
-      value: Max  Combo
+      value: MaxCombo
       objectReference: {fileID: 0}
     - target: {fileID: 6690708179706915644, guid: 29e23a6fdadfe48eea459336e8b66a75, type: 3}
       propertyPath: endMessage
@@ -1755,6 +1755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 2330743152479465915, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5531649965702801209, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1858,6 +1862,9 @@ PrefabInstance:
       addedObject: {fileID: 2004866160}
     - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2041841839}
+    - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 357537705}
     - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       insertIndex: -1
@@ -1868,9 +1875,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1667302636}
-    - targetCorrespondingSourceObject: {fileID: 7127680926621153043, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2041841839}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b16b44e9e104f2ba7f6c7069eac84b, type: 3}
 --- !u!1 &2004866159
@@ -1907,8 +1911,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -130, y: -40}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchoredPosition: {x: 57.6, y: -40}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2004866161
 MonoBehaviour:
@@ -1957,8 +1961,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2018,6 +2022,7 @@ GameObject:
   - component: {fileID: 2041841839}
   - component: {fileID: 2041841841}
   - component: {fileID: 2041841840}
+  - component: {fileID: 2041841842}
   m_Layer: 5
   m_Name: MaxCombo
   m_TagString: Untagged
@@ -2039,10 +2044,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 232462329}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -40}
-  m_SizeDelta: {x: 300, y: 50}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -260.3, y: -40}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041841840
 MonoBehaviour:
@@ -2064,7 +2069,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 'MaxCombo:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2091,8 +2096,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2141,6 +2146,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041841838}
   m_CullTransparentMesh: 1
+--- !u!114 &2041841842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041841838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 10, y: 10}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2073322971
 GameObject:
   m_ObjectHideFlags: 0
